@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User List</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>User List</h1>
+    </header>
+    <main>
+        <h2>Users</h2>
+        <ul>
+            <% users.forEach((user, index) => { %>
+                <li>
+                    <%= user.name %> - <%= user.email %>
+                    <form action="/delete-user/<%= index %>" method="POST" style="display:inline;">
+                        <button type="submit">Delete</button>
+                    </form>
+                    <form action="/update-user/<%= index %>" method="POST" style="display:inline;">
+                        <input type="text" name="name" placeholder="Name" required>
+                        <input type="email" name="email" placeholder="Email" required>
+                        <button type="submit">Update</button>
+                    </form>
+                </li>
+            <% }); %>
+        </ul>
+    </main>
+    <footer>
+        <p>&copy; 2024 Glen Matthew Victa</p>
+    </footer>
+</body>
+</html>
